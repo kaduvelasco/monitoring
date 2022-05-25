@@ -1,0 +1,189 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template report_monitoring/help_en
+
+    * @package    report
+    * @subpackage monitoring
+    * @version    1.0.1
+    * @copyright  2022 Kadu Velasco
+    * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+}}
+
+<link rel="stylesheet" href="{{{css}}}">
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <p>See below how to use the Monitoring system.</p>
+        </div>
+    </div>
+
+    <div class="row mt-3">
+        <div class="col-12">
+            <div class="accordion" id="accordionHelp">
+                <div class="card">
+                    <div class="card-header card-monitoring-header" id="heading1">
+                        <button class="btn btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
+                            1. Configuring the reports
+                        </button>
+                    </div>
+
+                    <div id="collapse1" class="collapse collapse-monitoring" aria-labelledby="heading1" data-parent="#accordionHelp">
+                        <div class="card-body card-monitoring-body">
+                            <p>The report settings are made in the "Settings" tab. The available options are:</p>
+
+                            <p>
+                                <strong>User table fields</strong><br/>
+                                This option defines the fields of the users table that will be added in the reports.<br/>
+                                Hold the <em>Ctrl</em> key to select more than one item or to deselect.
+                            </p>
+
+                            <p>
+                                <strong>User Profile Fields</strong><br/>
+                                This option allows you to select, when available, the profile fields of users registered on the platform.<br/>
+                                Hold down the <em>Ctrl</em> key to select more than one item or to deselect it.<br/>
+                            </p>
+
+                            <p>
+                                <strong>Modules ignored in report</strong><br/>
+                                This option allows you to define which Moodle features/activities will not be analyzed in the reports.<br/>
+                                Hold down the <em>Ctrl</em> key to select more than one item or to deselect it.<br/>
+                            </p>
+
+                            <p>
+                                <strong>Filter for users</strong><br/>
+                                This option allows you to define extra filters for users that will be applied when generating reports.<br/>
+                                A filter is defined by rules that must be informed as follows: <strong><em>conjunction|field_name|operator|value</em></strong>, where:<br/>
+                                <em>- conjunction:</em> are two options, and or or;<br/>
+                                <em>- field_name:</em> must be specified the value in parentheses shown in the fields "User table fields" and "User profile fields".<br/>
+                                <em>- operator:</em> can be "=" (same), "<>" (different), "like" (similar), "notlike" (not similar), "in" (has) and " notin" (does not have).<br/>
+                                <em>- value:</em> the value used in the filter.<br/><br/>
+
+                                <strong>Attention</strong><br/>
+                                1. Rules must be written in lowercase.<br/>
+                                2. If more than one rule is defined, they must be separated by a semicolon (;).<br/>
+                                <strong>3. The wrong declaration of this field can make it impossible to generate the reports.</strong><br/><br/>
+
+                                <strong>Examples</strong><br/>
+                                1 - Add a filter by country: and|country|=|BR<br/>
+                                2 - Add filter for two countries (method 1): and|country|=|BR;or|country|=|US<br/>
+                                3 - Add filter for two countries (method 2): and|country|IN|BR US
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header card-monitoring-header" id="heading2">
+                        <button class="btn btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
+                            2. Generating the participation report
+                        </button>
+                    </div>
+
+                    <div id="collapse2" class="collapse collapse-monitoring" aria-labelledby="heading2" data-parent="#accordionHelp">
+                        <div class="card-body card-monitoring-body">
+                            <p>The participation report tells you which activities have been completed by users enrolled in the selected course.</p>
+
+                            <p>To generate the report:</p>
+                            <p>
+                                1. Select the course. This field is required.<br/>
+                                2. Select the options that will be applied when generating the report.<br/>
+                                3. Select the user profiles that will be shown in the report. This field is required.<br/>
+                                4. Click on the "Generate report" button and wait for the file to be generated. When ready, a window will appear with options to open or save the file.
+                            </p>
+
+                            <p>
+                                The options available for this report are:<br/>
+                                "Do not show users defined as deleted in the database": This option removes deleted users from the report. That is, users that have the value 1 in the deleted field are not shown.<br/>
+                                "Do not show suspended users in Moodle": This option removes suspended users from the report. that is, users who have the value 1 in the suspended field are not shown.<br/>
+                                "Show only users with active enrollment in the course": Only users with active enrollment will be shown in the report.<br/>
+                                "Do not show hidden sessions and modules": This option removes sessions, activities and resources with hidden status from the report from the report.<br/>
+                                "Show course access data": This option adds to the report the information of the user's first and last access to the course, in addition to the number of accesses performed.<br/>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header card-monitoring-header" id="heading3">
+                        <button class="btn btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
+                            3. Generating the grade report
+                        </button>
+                    </div>
+
+                    <div id="collapse3" class="collapse collapse-monitoring" aria-labelledby="heading3" data-parent="#accordionHelp">
+                        <div class="card-body card-monitoring-body">
+                            <p>The Grade Report reports users' grade in the selected course.</p>
+
+                            <p>To generate the report:</p>
+                            <p>
+                                1. Select the course. This field is required.<br/>
+                                2. Select the options that will be applied when generating the report.<br/>
+                                3. Select the user profiles that will be shown in the report. This field is required.<br/>
+                                4. Enter the feedback that will be shown to approved users (optional).<br/>
+                                5. Enter the feedback that will be shown to disapproved users (optional).<br/>
+                                6. Inform the minimum grade that the user must have to be considered approved (optional).<br/>
+                                7. Click on the "Generate report" button and wait for the file to be generated. When ready, a window will appear with options to open or save the file.
+                            </p>
+
+                            <p>
+                                The options available for this report are:<br/>
+                                "Do not show users defined as deleted in the database": This option removes deleted users from the report. That is, users that have the value 1 in the deleted field are not shown.<br/>
+                                "Do not show suspended users in Moodle": This option removes suspended users from the report. that is, users who have the value 1 in the suspended field are not shown.<br/>
+                                "Show only users with active enrollment in the course": Only users with active enrollment will be shown in the report.<br/>
+                                "Show Feedback (Pass/Fail)": This option adds a feedback column to the report. This column informs whether the user was approved or not. If selected, the optional fields must be informed for the correct functioning of the report.<br/>
+                                "Show only users who have reached the minimum grade in the total course"<br/>
+                                "Only show users who have not reached the minimum grade in the total course"
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header card-monitoring-header" id="heading4">
+                        <button class="btn btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
+                            4. Generating the dedication report
+                        </button>
+                    </div>
+
+                    <div id="collapse4" class="collapse collapse-monitoring" aria-labelledby="heading4" data-parent="#accordionHelp">
+                        <div class="card-body card-monitoring-body">
+                            <p>The dedication report gives an estimate of the time the user spent logged in to Moodle.</p>
+                            <p>The estimate is made using log table records.</p>
+
+                            <p>To generate the report:</p>
+                            <p>
+                                1. Select the course. This field is required.<br/>
+                                2. Select the options that will be applied when generating the report.<br/>
+                                3. Select the user profiles that will be shown in the report. This field is required.<br/>
+                                4. Click on the "Generate report" button and wait for the file to be generated. When ready, a window will appear with options to open or save the file.
+                            </p>
+
+                            <p>
+                                The options available for this report are:<br/>
+                                "Do not show users defined as deleted in the database": This option removes deleted users from the report. That is, users that have the value 1 in the deleted field are not shown.<br/>
+                                "Do not show suspended users in Moodle": This option removes suspended users from the report. that is, users who have the value 1 in the suspended field are not shown.<br/>
+                                "Show only users with active enrollment in the course": Only users with active enrollment will be shown in the report.<br/>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

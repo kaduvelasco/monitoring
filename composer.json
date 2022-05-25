@@ -1,0 +1,17 @@
+{
+  "description": "Monitoring plugin for Moodle. Allows you to extract custom reports on the platform",
+  "keywords": ["moodle", "monitoring", "plugin", "php"
+  ],
+  "license": "GPL-3.0",
+
+  "authors": [
+    {
+      "name": "KaduVelasco",
+      "email": "carlos.velasco@caed.ufjf.br"
+    }
+  ],
+
+  "require": {
+    "phpoffice/phpspreadsheet" : "1.*"
+  }
+}

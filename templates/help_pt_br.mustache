@@ -1,0 +1,189 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template report_monitoring/help_pt_br
+
+    * @package    report
+    * @subpackage monitoring
+    * @version    1.0.1
+    * @copyright  2022 Kadu Velasco
+    * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+}}
+
+<link rel="stylesheet" href="{{{css}}}">
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <p>Veja abaixo como utilizar o sistema de Monitoramento.</p>
+        </div>
+    </div>
+
+    <div class="row mt-3">
+        <div class="col-12">
+            <div class="accordion" id="accordionHelp">
+                <div class="card">
+                    <div class="card-header card-monitoring-header" id="heading1">
+                        <button class="btn btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
+                            1. Configurando os relatórios
+                        </button>
+                    </div>
+
+                    <div id="collapse1" class="collapse colapse-monitoring" aria-labelledby="heading1" data-parent="#accordionHelp">
+                        <div class="card-body card-monitoring-body">
+                            <p>As configurações dos relatórios é feita na aba "Configurações". As opções disponíveis são:</p>
+
+                            <p>
+                                <strong>Campos da tabela de usuários</strong><br/>
+                                Esta opção define os campos da tabela de usuários que serão adicionados nos relatórios.<br/>
+                                Segure a tecla <em>Ctrl</em> para selecionar mais de um item ou para remover a seleção.
+                            </p>
+
+                            <p>
+                                <strong>Campos de perfil de usuários</strong><br/>
+                                Esta opção permite selecionar, quando disponível, os campos de perfil de usuários cadastrados na plataforma.<br/>
+                                Segure a tecla <em>Ctrl</em> para selecionar mais de um item ou para remover a seleção.<br/>
+                            </p>
+
+                            <p>
+                                <strong>Módulos ignorados no relatório</strong><br/>
+                                Esta opção permite definir quais recursos/atividades do Moodle que não serão analisadas nos relatórios.<br/>
+                                Segure a tecla <em>Ctrl</em> para selecionar mais de um item ou para remover a seleção.<br/>
+                            </p>
+
+                            <p>
+                                <strong>Filtro para usuários</strong><br/>
+                                Esta opção permite definir filtros extras para os usuários que serão aplicados na geração dos relatórios.<br/>
+                                Um filtro é definido por regras que devem ser informadas da seguinte forma: <strong><em>conjunção|nome_campo|operador|valor</em></strong>, onde:<br/>
+                                <em>- conjunção:</em> são duas opções, and ou or;<br/>
+                                <em>- nome_campo:</em> deve ser especificado o valor entre parênteses mostrados nos campos "Campos da tabela de usuários" e "Campos de perfil de usuários".<br/>
+                                <em>- operador:</em> pode ser "=" (igual), "<>" (diferente), "like" (parecido), "notlike" (não parecido), "in" (possui) e "notin" (não possui).<br/>
+                                <em>- valor:</em> o valor utilizado no filtro.<br/><br/>
+
+                                <strong>Atenção</strong><br/>
+                                1. As regras devem ser escritas em minúsculo.<br/>
+                                2. Caso mais de uma regra seja definida, elas devem ser separadas por ponto e vírgula (;).<br/>
+                                <strong>3. A declaração errada desse campo pode impossibilitar e geração dos relatórios.</strong><br/><br/>
+
+                                <strong>Exemplos</strong><br/>
+                                1 - Adicionar um filtro por país: and|country|=|BR<br/>
+                                2 - Adicionar filtro para dois países (método 1): and|country|=|BR;or|country|=|US<br/>
+                                3 - Adicionar filtro para dois países (método 2): and|country|IN|BR US
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header card-monitoring-header" id="heading2">
+                        <button class="btn btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
+                            2. Gerando o relatório de participação
+                        </button>
+                    </div>
+
+                    <div id="collapse2" class="collapse colapse-monitoring" aria-labelledby="heading2" data-parent="#accordionHelp">
+                        <div class="card-body card-monitoring-body">
+                            <p>O relatório de participação informa quais atividades foram concluídas pelos usuários matriculados no curso selecionado.</p>
+
+                            <p>Para gerar o relatório:</p>
+                            <p>
+                                1. Selecione o curso. Este campo é obrigatório.<br/>
+                                2. Selecione as opções que serão aplicadas na geração do relatório.<br/>
+                                3. Selecione os perfis de usuário que serão mostrados no relatório. Este campo é obrigatório.<br/>
+                                4. Clique no botão "Gerar relatório" e aguarde o arquivo ser gerado. Quando estiver pronto uma janela será exibida com as opções de abrir ou salvar o arquivo.
+                            </p>
+
+                            <p>
+                                As opções disponíveis para este relatório são:<br/>
+                                "Não mostrar usuários definidos como apagados no banco": Esta opção remove os usuários apagados do relatório. Ou seja, os usuários que possuem o valor 1 no campo deleted não são mostrados.<br/>
+                                "Não mostrar usuários suspensos no Moodle": Esta opção remove os usuários suspensos do relatório. ou seja, os usuários que possuem o valor 1 no campo suspended não são mostrados.<br/>
+                                "Mostrar somente usuários com inscrição ativa no curso": Somente usuários com a inscrição ativa serão mostrados no relatório.<br/>
+                                "Não mostrar sessões e módulos ocultos": Esta opção remove do relatório sessões, atividades e recursos com status oculto do relatório.<br/>
+                                "Mostrar dados de acesso ao curso": Esta opção adiciona ao relatório as informações de primeiro e último acesso do usuário no curso além da quantidade de acessos realizados.<br/>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header card-monitoring-header" id="heading3">
+                        <button class="btn btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
+                            3. Gerando o relatório de notas
+                        </button>
+                    </div>
+
+                    <div id="collapse3" class="collapse colapse-monitoring" aria-labelledby="heading3" data-parent="#accordionHelp">
+                        <div class="card-body card-monitoring-body">
+                            <p>O relatório de notas informa a nota dos usuários no curso selecionado.</p>
+
+                            <p>Para gerar o relatório:</p>
+                            <p>
+                                1. Selecione o curso. Este campo é obrigatório.<br/>
+                                2. Selecione as opções que serão aplicadas na geração do relatório.<br/>
+                                3. Selecione os perfis de usuário que serão mostrados no relatório. Este campo é obrigatório.<br/>
+                                4. Informe o feedback que será mostrado para usuários aprovados (opcional).<br/>
+                                5. Informe o feedback que será mostrado para usuários reprovados (opcional).<br/>
+                                6. Informe a nota mínima que o usuário deve ter para ser considerado aprovado (opcional).<br/>
+                                7. Clique no botão "Gerar relatório" e aguarde o arquivo ser gerado. Quando estiver pronto uma janela será exibida com as opções de abrir ou salvar o arquivo.
+                            </p>
+
+                            <p>
+                                As opções disponíveis para este relatório são:<br/>
+                                "Não mostrar usuários definidos como apagados no banco": Esta opção remove os usuários apagados do relatório. Ou seja, os usuários que possuem o valor 1 no campo deleted não são mostrados.<br/>
+                                "Não mostrar usuários suspensos no Moodle": Esta opção remove os usuários suspensos do relatório. ou seja, os usuários que possuem o valor 1 no campo suspended não são mostrados.<br/>
+                                "Mostrar somente usuários com inscrição ativa no curso": Somente usuários com a inscrição ativa serão mostrados no relatório.<br/>
+                                "Mostrar feedback (aprovado/reprovado)": Esta opção adiciona uma coluna de feedback no relatório. Esta coluna informa se o usuário foi aprovado ou não. Caso selecionado, os campos opcionais devem ser informados para o correto funcionamento do relatório.<br/>
+                                "Mostrar somente usuários que atingiram a nota mínima no total do curso"<br/>
+                                "Mostrar somente usuários que não atingiram a nota mínima no total do curso"
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header card-monitoring-header" id="heading4">
+                        <button class="btn btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
+                            4. Gerando o relatório de dedicação
+                        </button>
+                    </div>
+
+                    <div id="collapse4" class="collapse colapse-monitoring" aria-labelledby="heading4" data-parent="#accordionHelp">
+                        <div class="card-body card-monitoring-body">
+                            <p>O relatório de dedicação informa uma estimativa do tempo que o usuário passou logado no Moodle.</p>
+                            <p>A estimativa é feita utilizando os registros da tabela de log.</p>
+
+                            <p>Para gerar o relatório:</p>
+                            <p>
+                                1. Selecione o curso. Este campo é obrigatório.<br/>
+                                2. Selecione as opções que serão aplicadas na geração do relatório.<br/>
+                                3. Selecione os perfis de usuário que serão mostrados no relatório. Este campo é obrigatório.<br/>
+                                4. Clique no botão "Gerar relatório" e aguarde o arquivo ser gerado. Quando estiver pronto uma janela será exibida com as opções de abrir ou salvar o arquivo.
+                            </p>
+
+                            <p>
+                                As opções disponíveis para este relatório são:<br/>
+                                "Não mostrar usuários definidos como apagados no banco": Esta opção remove os usuários apagados do relatório. Ou seja, os usuários que possuem o valor 1 no campo deleted não são mostrados.<br/>
+                                "Não mostrar usuários suspensos no Moodle": Esta opção remove os usuários suspensos do relatório. ou seja, os usuários que possuem o valor 1 no campo suspended não são mostrados.<br/>
+                                "Mostrar somente usuários com inscrição ativa no curso": Somente usuários com a inscrição ativa serão mostrados no relatório.<br/>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

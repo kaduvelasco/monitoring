@@ -1,0 +1,43 @@
+/**
+    report_monitoring css styles
+
+    * @package    report
+    * @subpackage monitoring
+    * @version    1.0.1
+    * @copyright  2022 Kadu Velasco
+    * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
+
+#id_user_fields, #id_user_extrafields, #id_ignored_modules,
+#id_report_options, #id_user_role, #id_user_filter
+{
+    width:100%;
+    height:150px;
+}
+
+#id_course
+{
+    width:100%;
+}
+
+/* Help page */
+.card-monitoring-header
+{
+    border-top:1px solid #2D2E2F;
+    border-bottom:0!important;
+    background-color:transparent;
+    outline:0!important;
+    padding:0;
+}
+.card-monitoring-header button,
+.card-monitoring-header button:focus,
+.card-monitoring-header button:active
+{
+    border:0!important;
+    font-weight:bold;
+}
+
+.card-monitoring-body
+{
+    padding:10px;
+}
