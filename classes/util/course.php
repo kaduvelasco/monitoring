@@ -162,7 +162,7 @@ function report_monitoring_get_course_sections(string $course_id, array $config,
 {
     global $CFG, $DB;
 
-    $report_options = explode(',', $config['report_participation_options']);
+    $report_options = explode(',', $config['participation_options']);
 
     $sql = 'SELECT id, course, section, name, sequence, visible FROM ' . $CFG->prefix . 'course_sections';
     $sql .= ' WHERE course = ' . $course_id;
@@ -237,7 +237,7 @@ function report_monitoring_get_course_modules(string $course_id, array $config):
 {
     global $CFG, $DB;
 
-    $report_options = explode(',', $config['report_participation_options']);
+    $report_options = explode(',', $config['participation_options']);
 
     $sql = 'SELECT id, course, module, instance, section, visible FROM ' . $CFG->prefix . 'course_modules';
     $sql .= ' WHERE course = ' . $course_id . ' AND deletioninprogress = 0';

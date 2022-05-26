@@ -78,6 +78,18 @@ try {
         report_monitoring_add_report_settings($config, 'participation_roles', $form_data->user_role);
         $config = report_monitoring_get_plugin_settings();
 
+        $custom_data = [
+            'course_list'    => $course_list,
+            'report_options' => $report_options,
+            'moodle_roles'   => $moodle_roles,
+            'report_options_sel' => (isset($config['participation_options']))
+                ? $config['participation_options']
+                : [],
+            'moodle_roles_sel' => (isset($config['participation_roles']))
+                ? $config['participation_roles']
+                : [],
+        ];
+
         // Data for the report. Here we will select the data:
         // From the course
         // From users

@@ -111,26 +111,32 @@ function report_monitoring_make_header_course(array $course_structure): array
     $html1 = $html2 = $html3 = '';
 
     foreach ($course_structure as $c) {
-        $colspan = $c['ttl_modules'] * 3;
 
-        $html1 .= '<td colspan="' . $colspan . '">' . $c['name'];
-        $html1 .= ('0' === $c['visible'])
-            ? '<br/><small>[' . get_string('hidden', 'report_monitoring') . ']</small></td>'
-            : '</td>';
-
-        if (isset($c['modules'])) {
-            foreach ($c['modules'] as $m) {
-                $html2 .= '<td colspan="3">' . $m['name'] . '<br/><small>(' . $m['type'] . ')</small>';
-                $html2 .= ('0' === $m['visible'])
-                    ? '<br/><small>[' . get_string('hidden', 'report_monitoring') . ']</small></td>'
-                    : '</td>';
-                $html3 .= '<td>' . get_string('concluded', 'report_monitoring') . '</td>';
-                $html3 .= '<td>' . get_string('visualized', 'report_monitoring') . '</td>';
-                $html3 .= '<td>' . get_string('data', 'report_monitoring') . '</td>';
-            }
+        // Verifica se a sessão é a zero, se for e não possuir módulos, não faz nada
+        if ( ('0' === $c['section']) && (0 === intval($c['ttl_modules']))) {
+            $html1 = '';
         } else {
-            $html2 .= '<td colspan="3"></td>';
-            $html3 .= '<td colspan="3"></td>';
+            $colspan = intval($c['ttl_modules']) * 3;
+
+            $html1 .= '<td colspan="' . $colspan . '">' . $c['name'];
+            $html1 .= ('0' === $c['visible'])
+                ? '<br/><small>[' . get_string('hidden', 'report_monitoring') . ']</small></td>'
+                : '</td>';
+
+            if (isset($c['modules'])) {
+                foreach ($c['modules'] as $m) {
+                    $html2 .= '<td colspan="3">' . $m['name'] . '<br/><small>(' . $m['type'] . ')</small>';
+                    $html2 .= ('0' === $m['visible'])
+                        ? '<br/><small>[' . get_string('hidden', 'report_monitoring') . ']</small></td>'
+                        : '</td>';
+                    $html3 .= '<td>' . get_string('concluded', 'report_monitoring') . '</td>';
+                    $html3 .= '<td>' . get_string('visualized', 'report_monitoring') . '</td>';
+                    $html3 .= '<td>' . get_string('date', 'report_monitoring') . '</td>';
+                }
+            } else {
+                $html2 .= '<td colspan="3"></td>';
+                $html3 .= '<td colspan="3"></td>';
+            }
         }
     }
 
