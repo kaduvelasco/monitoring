@@ -18,7 +18,7 @@
 /**
  * @package    report
  * @subpackage monitoring
- * @version    1.0.1
+ * @version    1.0.2
  * @copyright  2022 Kadu Velasco
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -127,6 +127,7 @@ function report_monitoring_get_user_data(
 
     // Query SQL (for user data)
     // User fields
+    $user_fields = ('' === $user_fields) ? 'id' : $user_fields;
     $user_fields2 = explode(',', $user_fields);
     $fields = $where = $where_extra = $left_join = '';
     $add_id = true;

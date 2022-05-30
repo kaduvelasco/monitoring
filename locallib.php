@@ -18,7 +18,7 @@
 /**
  * @package    report
  * @subpackage monitoring
- * @version    1.0.1
+ * @version    1.0.2
  * @copyright  2022 Kadu Velasco
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -102,6 +102,12 @@ function report_monitoring_get_plugin_settings(): array
     foreach ($result as $k) {
         $arr_return[$k->name] = $k->value;
     }
+
+    $arr_return['user_fields'] = (isset($arr_return['user_fields'])) ? $arr_return['user_fields'] : '';
+    $arr_return['user_extrafields'] = (isset($arr_return['user_extrafields'])) ? $arr_return['user_extrafields'] : '';
+    $arr_return['ignored_modules'] = (isset($arr_return['ignored_modules'])) ? $arr_return['ignored_modules'] : '';
+    $arr_return['user_filter'] = (isset($arr_return['user_filter'])) ? $arr_return['user_filter'] : '';
+
     return $arr_return;
 }
 

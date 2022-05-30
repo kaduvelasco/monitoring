@@ -5,6 +5,9 @@ Monitoring plugin for Moodle. Allows you to extract custom reports on the platfo
 
 This plugin was based on several scripts that I used to meet the demands of the company where I work.
 
+## Important
+This plugin requires PHP version 7.3.0 or higher to work.
+
 ## Version history
 
 ### 1.0.0
@@ -26,6 +29,10 @@ This plugin was based on several scripts that I used to meet the demands of the 
 - Extra filter option for users moved to configuration page
 - Option to filter grade report results on pass or fail users
 - Option to set the grade for passing the course
+
+### 1.0.2
+- MATURITY: BETA
+- Bugs fixed
 
 ## Install
 

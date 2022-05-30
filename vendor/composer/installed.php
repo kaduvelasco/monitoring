@@ -5,7 +5,7 @@
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '383743819586e78d9cc9cab33db3f39acd1a2d8c',
+        'reference' => '23cc0af6ffcd21402082473684a590dd5f9e36a9',
         'name' => '__root__',
         'dev' => true,
     ),
@@ -16,7 +16,7 @@
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '383743819586e78d9cc9cab33db3f39acd1a2d8c',
+            'reference' => '23cc0af6ffcd21402082473684a590dd5f9e36a9',
             'dev_requirement' => false,
         ),
         'ezyang/htmlpurifier' => array(
@@ -29,12 +29,12 @@
             'dev_requirement' => false,
         ),
         'maennchen/zipstream-php' => array(
-            'pretty_version' => '2.2.1',
-            'version' => '2.2.1.0',
+            'pretty_version' => '2.1.0',
+            'version' => '2.1.0.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../maennchen/zipstream-php',
             'aliases' => array(),
-            'reference' => '211e9ba1530ea5260b45d90c9ea252f56ec52729',
+            'reference' => 'c4c5803cc1f93df3d2448478ef79394a5981cc58',
             'dev_requirement' => false,
         ),
         'markbaker/complex' => array(

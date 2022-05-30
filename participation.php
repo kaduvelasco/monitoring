@@ -18,7 +18,7 @@
 /**
  * @package    report
  * @subpackage monitoring
- * @version    1.0.1
+ * @version    1.0.2
  * @copyright  2022 Kadu Velasco
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -137,6 +137,7 @@ try {
         $filename .= '_' . date('dmYHis');
 
         report_monitoring_get_report($final_html, $filename);
+
     }
 
     // Here we define the page content, to be shown in the mustache template, it must be stored in the $content object
