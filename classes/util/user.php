@@ -166,7 +166,7 @@ function report_monitoring_get_user_data(
 
     $where .= (in_array('hide_deleted', $report_options)) ? ' AND u.deleted = 0' : '';
     $where .= (in_array('hide_suspended', $report_options)) ? ' AND u.suspended = 0' : '';
-    $where .= (in_array('hide_canceledenrol', $report_options)) ? ' AND ue.status = 0' : '';
+    $where .= (in_array('hide_canceled_enrol', $report_options)) ? ' AND ue.status = 0' : '';
     $where .= ('' !== $report_filter['user']) ? ' ' . $report_filter['user'] : '';
     $where .= ('' !== $report_filter['extra']) ? ' ' . $report_filter['extra'] : '';
 
