@@ -33,6 +33,13 @@ This plugin requires PHP version 7.3.0 or higher to work.
 ### 1.0.2
 - MATURITY: BETA
 - Bugs fixed
+- 
+### 1.0.3
+- MATURITY: BETA
+- Bugs fixed
+
+## Known bugs
+- Error generating reports using custom fields. Expected fix for version 1.0.4 on 9/1/2022
 
 ## Install
 

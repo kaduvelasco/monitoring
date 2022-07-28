@@ -38,7 +38,7 @@ require_once dirname(__FILE__) . '/classes/util/renderlib.php';
 require_once dirname(__FILE__) . '/classes/forms/dedication_form.php';
 
 raise_memory_limit(MEMORY_HUGE);
-set_time_limit(300);
+set_time_limit(600);
 
 try {
     // Informs that you need to be logged in and that it is an administration page
